@@ -7,6 +7,8 @@ def home_view(request, *args, **kwargs):
 def about_view(request, *args, **kwargs):
     # qs = PageVisit.objects.all()
     page_qs = PageVisit.objects.filter(path=request.path)
+    total_visits = PageVisit.objects.count()
+    page_visits = page_qs.count()
     try:
         percent = (page_qs.count() * 100) / PageVisit.objects.count()
     except:
@@ -14,8 +16,8 @@ def about_view(request, *args, **kwargs):
     my_title = "My_page"
     my_context = {
         "page_title": my_title,
-        "page_visit_count": page_qs.count(),
-        "total_visit_count": PageVisit.objects.count(),
+        "page_visit_count": page_visits,
+        "total_visit_count": total_visits,
         "percent": percent
     }
     print(f"Page path: {request.path}")
