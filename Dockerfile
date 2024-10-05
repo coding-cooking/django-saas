@@ -47,6 +47,15 @@ RUN pip install -r /tmp/requirements.txt
 ARG DJANGO_SECRET_KEY
 ENV DJANGO_SECRET_KEY = ${DJANGO_SECRET_KEY}
 
+ARG DJANGO_DEBUG
+ENV DJANGO_DEBUG = ${DJANGO_DEBUG}
+
+ARG DATABASE_URL
+ENV DATABASE_URL = ${DATABASE_URL}
+
+ARG CONN_MAX_AGE
+ENV CONN_MAX_AGE = ${CONN_MAX_AGE}
+
 # database isn't available during build
 # run any other commands that do not need the database
 # such as:
