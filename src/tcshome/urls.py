@@ -21,7 +21,7 @@ from .views import about_view
 from auth import views as auth_views
 
 urlpatterns = [
-    path('', home_view),
+    path('', home_view, name="home"),
     # path('login/', auth_views.login_view),
     # path('register/', auth_views.register_view), 如果不注释掉下面的accounts/就打不开
     path('about/', about_view),
